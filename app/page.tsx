@@ -1,6 +1,6 @@
 "use client"
 
-import JsClock from "@/Components/Clocks/JsClock"
+import JsClock from "@/components/clocks/JsClock"
 import { useEffect, useState } from "react"
 
 export default function Home() {
