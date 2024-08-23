@@ -4,7 +4,7 @@ export default function JsClock({ time }: Readonly<{ time: Date }>) {
       <code className="text-2xl">
         <KeyWord value="const" /> <Const value="clock" />{" "}
         <Operator value="=" /> <Brackets value="{" />
-        <NumberProperty name="hour" value={time.getHours()} />
+        <NumberProperty name="hour" value={time.getHours() % 12 || 12} />
         <NumberProperty name="minute" value={time.getMinutes()} />
         <NumberProperty name="second" value={time.getSeconds()} />
         <StringProperty name="period" value={time.getHours() >= 12 ? "PM" : "AM"} />
