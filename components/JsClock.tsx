@@ -2,17 +2,29 @@ export default function JsClock({ time }: Readonly<{ time: Date }>) {
   return (
     <div className="flex flex-col items-center justify-center">
       <code className="text-2xl">
-        <KeyWord value="const" /> <Const value="clock" />{" "}
-        <Operator value="=" /> <Brackets value="{" />
-        <NumberProperty name="hour" value={time.getHours() % 12 || 12} />
+        <KeyWord value="const" /> <Const value="clock" /> <Operator value="=" />{" "}
+        <Brackets value="{" />
+        <NumberProperty
+          name="hour"
+          value={parseInt(
+            time
+              .toLocaleString("en-GB", { hour12: true, hour: "numeric" })
+              .split(" ")[0]
+          )}
+        />
         <NumberProperty name="minute" value={time.getMinutes()} />
         <NumberProperty name="second" value={time.getSeconds()} />
-        <StringProperty name="period" value={time.getHours() >= 12 ? "PM" : "AM"} />
+        <StringProperty
+          name="period"
+          value={time.getHours() >= 12 ? "PM" : "AM"}
+        />
         <NumberProperty name="day" value={time.getDate()} />
-        <StringProperty name="month" value={time.toLocaleString("en-GB", { month: "long" })} />
+        <StringProperty
+          name="month"
+          value={time.toLocaleString("en-GB", { month: "long" })}
+        />
         <NumberProperty name="year" value={time.getFullYear()} />
         <Brackets value="}" />
-
       </code>
     </div>
   )
