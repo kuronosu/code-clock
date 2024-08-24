@@ -1,7 +1,10 @@
 export default function JsClock({ time }: Readonly<{ time: Date }>) {
   return (
     <div className="flex flex-col items-center justify-center">
-      <code className="text-2xl">
+      <code
+        className="text-2xl"
+        style={{ "--tab-color": "#F8D70033" } as React.CSSProperties}
+      >
         <KeyWord value="const" /> <Const value="clock" /> <Operator value="=" />{" "}
         <Brackets value="{" />
         <NumberProperty
@@ -31,7 +34,9 @@ export default function JsClock({ time }: Readonly<{ time: Date }>) {
 }
 
 const Tab = ({ children }: Readonly<{ children: React.ReactNode }>) => (
-  <div className="pl-4">{children}</div>
+  <div className="pl-[1em] border-l-2 border-[var(--tab-color,#FFFFFF33)]">
+    {children}
+  </div>
 )
 
 const KeyWord = ({ value }: Readonly<{ value: string }>) => (
